@@ -2,7 +2,7 @@ const IMG_CONTAINER_CLASS = "_2pktu"; // <-- constant class name for image conta
 const BUTTON_CONTAINER_CLASS = "_3qNGb";
 
 const onImageOpen = (wrapperElement) => {
-    const buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
+    var buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
     if (buttonContainer.children.length < 6) {
         window.setTimeout(() => onImageOpen(wrapperElement), 500);
         return;
@@ -10,7 +10,13 @@ const onImageOpen = (wrapperElement) => {
     const exampleButton = buttonContainer.children[0];
     var newButton = exampleButton.cloneNode(true);
     newButton.addEventListener("click", rotateImage);
-    document.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0].prepend(newButton);
+
+    buttonContainer.prepend(newButton);
+    for (let i = 0; i < buttonContainer.children.length; i++) {
+        var el = buttonContainer.children[i];
+        console.log(el);
+        el.style.zIndex = "9999";
+    }
 }
 
 const rotateImage = () => {
