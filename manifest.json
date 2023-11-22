@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "WhatsApp Web Tools",
+    "description": "Tools to imporve WhatsApp Web experience",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "js": [
+                "add-rotate-image-button.js"
+            ],
+            "matches": [
+                "https://web.whatsapp.com/"
+            ]
+        }
+    ]
+}
