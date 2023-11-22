@@ -1,19 +1,22 @@
+const IMG_CONTAINER_CLASS = "_2pktu"; // <-- non variable class name for image container
+const BUTTON_CONTAINER_CLASS = "_3qNGb";
+
 const onImageOpen = (wrapperElement) => {
     console.log("image opened")
-    const buttonContainer = wrapperElement.getElementsByClassName("_3qNGb")[0];
+    const buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
     console.log(buttonContainer.children.length);
-    if (buttonContainer.children.length < 7) {
+    if (buttonContainer.children.length < 6) {
         window.setTimeout(() => onImageOpen(wrapperElement), 500);
         return;
     }
     const exampleButton = buttonContainer.children[0];
     var newButton = exampleButton.cloneNode(true);
     newButton.addEventListener("click", rotateImage);
-    document.getElementsByClassName("_3qNGb")[0].prepend(newButton);
+    document.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0].prepend(newButton);
 }
 
 const rotateImage = () => {
-    var imgWrapper = document.getElementsByClassName("_3VqhE")[0];
+    var imgWrapper = document.getElementsByClassName(IMG_CONTAINER_CLASS)[0];
     console.log(imgWrapper)
     imgWrapper.style.transform = "rotate(-90deg)";
     console.log(imgWrapper.style.transform);
