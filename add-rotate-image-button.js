@@ -2,9 +2,7 @@ const IMG_CONTAINER_CLASS = "_2pktu"; // <-- non variable class name for image c
 const BUTTON_CONTAINER_CLASS = "_3qNGb";
 
 const onImageOpen = (wrapperElement) => {
-    console.log("image opened")
     const buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
-    console.log(buttonContainer.children.length);
     if (buttonContainer.children.length < 6) {
         window.setTimeout(() => onImageOpen(wrapperElement), 500);
         return;
@@ -17,9 +15,7 @@ const onImageOpen = (wrapperElement) => {
 
 const rotateImage = () => {
     var imgWrapper = document.getElementsByClassName(IMG_CONTAINER_CLASS)[0];
-    console.log(imgWrapper)
     let currRotation = getCurrentRotation(imgWrapper)*-1;
-    console.log(currRotation);
     if (currRotation < 270) currRotation += 90;
     else currRotation = 0;
     imgWrapper.style.transform = "rotate(-" + currRotation + "deg)";
@@ -47,7 +43,6 @@ const getCurrentRotation = (element) => {
         }  
     }
 
-    console.log(transformString, propIndex);
     if (propIndex == -1 || transformString.charAt(propIndex) != "(") return 0;    
     let i = propIndex+1;
     while (transformString.charAt(i) != ")") {
