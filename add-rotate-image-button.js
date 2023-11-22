@@ -1,4 +1,4 @@
-const IMG_CONTAINER_CLASS = "_2pktu"; // <-- non variable class name for image container
+const IMG_CONTAINER_CLASS = "_2pktu"; // <-- constant class name for image container
 const BUTTON_CONTAINER_CLASS = "_3qNGb";
 
 const onImageOpen = (wrapperElement) => {
