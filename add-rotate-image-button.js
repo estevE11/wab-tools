@@ -11,6 +11,8 @@ const onImageOpen = (wrapperElement) => {
     const exampleButton = buttonContainer.children[0];
     var newButton = exampleButton.cloneNode(true);
     newButton.addEventListener("click", rotateImage);
+    var bubble = newButton.querySelector("span[data-icon='bubble']"); // SVG Container
+    bubble.innerHTML = rotateIconSVG;
     buttonContainer.prepend(newButton);
 
     for (let i = 0; i < buttonContainer.children.length; i++) {
@@ -76,3 +78,9 @@ function addObserverIfDesiredNodeAvailable() {
     observer.observe(elementToListen, { childList: true });
 }
 addObserverIfDesiredNodeAvailable();
+
+const rotateIconSVG = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12.5 20.5C17.1944 20.5 21 16.6944 21 12C21 7.30558 17.1944 3.5 12.5 3.5C7.80558 3.5 4 7.30558 4 12C4 13.5433 4.41128 14.9905 5.13022 16.238M1.5 15L5.13022 16.238M6.82531 12.3832L5.47107 16.3542L5.13022 16.238" stroke="#aebac1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+`;
