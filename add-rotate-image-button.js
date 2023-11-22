@@ -7,14 +7,14 @@ const onImageOpen = (wrapperElement) => {
         window.setTimeout(() => onImageOpen(wrapperElement), 500);
         return;
     }
+
     const exampleButton = buttonContainer.children[0];
     var newButton = exampleButton.cloneNode(true);
     newButton.addEventListener("click", rotateImage);
-
     buttonContainer.prepend(newButton);
+
     for (let i = 0; i < buttonContainer.children.length; i++) {
         var el = buttonContainer.children[i];
-        console.log(el);
         el.style.zIndex = "9999";
     }
 }
