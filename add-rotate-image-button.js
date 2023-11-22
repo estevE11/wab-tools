@@ -18,10 +18,44 @@ const onImageOpen = (wrapperElement) => {
 const rotateImage = () => {
     var imgWrapper = document.getElementsByClassName(IMG_CONTAINER_CLASS)[0];
     console.log(imgWrapper)
-    imgWrapper.style.transform = "rotate(-90deg)";
-    console.log(imgWrapper.style.transform);
+    let currRotation = getCurrentRotation(imgWrapper)*-1;
+    console.log(currRotation);
+    if (currRotation < 270) currRotation += 90;
+    else currRotation = 0;
+    imgWrapper.style.transform = "rotate(-" + currRotation + "deg)";
 }
 
+const getCurrentRotation = (element) => {
+    const PROP = "rotate";
+    const transformString = element.style.transform;
+    let currString = "";
+    let propIndex = -1;
+    let stringValue = "";
+
+    // Find property name to get "(" index.
+    for (let i = 0; i < transformString.length; i++) {
+        if (currString.length < PROP.length) {
+            currString += transformString[i];
+        }
+        if (currString.length == PROP.length) {
+            if (currString == PROP) {
+                propIndex = i+1;
+                break;
+            }
+            currString += transformString[i];
+            currString = currString.substring(1);
+        }  
+    }
+
+    console.log(transformString, propIndex);
+    if (propIndex == -1 || transformString.charAt(propIndex) != "(") return 0;    
+    let i = propIndex+1;
+    while (transformString.charAt(i) != ")") {
+        stringValue += transformString.charAt(i);
+        i++;
+    }
+    return parseInt(stringValue.substring(0, stringValue.length-3));
+}
 
 var observer = new WebKitMutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
