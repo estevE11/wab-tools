@@ -31,9 +31,3 @@ WhatsApp Web Tools is a chrome extension to get extra features that improve user
   <p align="center">
     <a href="http://www.youtube.com/watch?feature=player_embedded&v=tFbBiEdFVUA" target="_blank"><img src="http://img.youtube.com/vi/tFbBiEdFVUA/0.jpg" alt="Convert chrome extension to safari macOS" width="480" height="340" border="10" /></a>
   </p>
-  
-  And this one for iOS:
-  
-  <p align="center">
-    <a href="http://www.youtube.com/watch?feature=player_embedded&v=9h6OQ5IGmKI" target="_blank"><img src="http://img.youtube.com/vi/9h6OQ5IGmKI/0.jpg" alt="Convert chrome extension to safari iOS" width="480" height="340" border="10" /></a>
-  </p>
