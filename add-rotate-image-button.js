@@ -30,35 +30,20 @@ const rotateImage = () => {
 }
 
 const getCurrentRotation = (element) => {
-    const PROP = "rotate";
-    const transformString = element.style.transform;
-    let currString = "";
-    let propIndex = -1;
-    let stringValue = "";
-
-    // Find property name to get "(" index.
-    for (let i = 0; i < transformString.length; i++) {
-        if (currString.length < PROP.length) {
-            currString += transformString[i];
-        }
-        if (currString.length == PROP.length) {
-            if (currString == PROP) {
-                propIndex = i+1;
-                break;
-            }
-            currString += transformString[i];
-            currString = currString.substring(1);
-        }  
+    // Get the transform property value from the element's style
+    const transformString = element.style.transform || window.getComputedStyle(element).transform;
+    // Use a regular expression to match the rotation value in the transform property
+    const match = transformString.match(/rotate\(([-+]?\d*\.?\d+)(?:deg)?\)/);
+    // Check if a match is found and extract the rotation value
+    if (match && match[1]) {
+        // Convert the rotation value to a floating-point number
+        return parseFloat(match[1]);
+    } else {
+        // Return 0 if no rotation value is found
+        return 0;
     }
+};
 
-    if (propIndex == -1 || transformString.charAt(propIndex) != "(") return 0;    
-    let i = propIndex+1;
-    while (transformString.charAt(i) != ")") {
-        stringValue += transformString.charAt(i);
-        i++;
-    }
-    return parseInt(stringValue.substring(0, stringValue.length-3));
-}
 
 var observer = new WebKitMutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
