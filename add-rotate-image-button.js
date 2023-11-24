@@ -12,6 +12,9 @@ const onImageOpen = (wrapperElement) => {
     var newButton = exampleButton.cloneNode(true);
     newButton.addEventListener("click", rotateImage);
     var bubble = newButton.querySelector("span[data-icon='bubble']"); // SVG Container
+    if(!bubble)
+        bubble = newButton.querySelector("span[data-icon='reply']"); // SVG Container
+
     bubble.innerHTML = rotateIconSVG;
     buttonContainer.prepend(newButton);
 
