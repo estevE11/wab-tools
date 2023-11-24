@@ -5,7 +5,7 @@
 WhatsApp Web Tools is a chrome extension to get extra features that improve user experience
 
 ## Features:
-  - (WIP) Rotate images by 90deg 
+  - Rotate images by 90deg 
     
 
 
@@ -24,7 +24,7 @@ WhatsApp Web Tools is a chrome extension to get extra features that improve user
   
 ## Safari Suport
 
-  For anyone interested in having the extension in safari there is a quite simple way of converting the chrome extension for a safari one supporting booth macOS and iOS. 
+  For anyone interested in having the extension in safari there is a quite simple way of converting the chrome extension for a safari one supporting booth macOS. 
   
   Here is a short tutorial on how to get it for macOS:
   
