@@ -56,16 +56,6 @@ const updateToggleButonColor = () => {
     bubble.innerHTML = sendButtonSVG(!enterActive ? "#008069" : "#aebac1");
 }
 
-/*
-var observer2 = new WebKitMutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-        for (var i = 0; i < mutation.addedNodes.length; i++) {
-            onInputShow(mutation.addedNodes[i]);
-        }
-    });
-});
-*/
-
 function addObserverIfDesiredNodeAvailable2() {
     let elementToListen = document.getElementsByClassName("_2Ts6i _2xAQV")[1];
     if (!elementToListen) {
