@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "WhatsApp Web Tools",
     "description": "Tools to imporve WhatsApp Web experience",
-    "version": "1.0",
+    "version": "1.1",
     "icons": {
         "16": "img/icon16.png",
         "48": "img/icon48.png",
@@ -11,7 +11,8 @@
     "content_scripts": [
         {
             "js": [
-                "add-rotate-image-button.js"
+                "add-rotate-image-button.js",
+                "avoid-enter-send.js"
             ],
             "matches": [
                 "https://web.whatsapp.com/"
