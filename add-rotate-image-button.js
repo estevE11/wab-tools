@@ -47,7 +47,7 @@ const getCurrentRotation = (element) => {
     }
 };
 
-
+/*
 var observer = new WebKitMutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
@@ -55,7 +55,7 @@ var observer = new WebKitMutationObserver(function (mutations) {
         }
     });
 });
-
+*/
 function addObserverIfDesiredNodeAvailable() {
     let elementToListen = document.getElementsByClassName("app-wrapper-web")[0];
     if (!elementToListen || elementToListen.children.length < 2) {
