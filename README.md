@@ -6,6 +6,7 @@ WhatsApp Web Tools is a chrome extension to get extra features that improve user
 
 ## Features:
   - Rotate images by 90deg 
+  - Avoid Enter key sending the message (Feature toggleable) 
     
 
 
