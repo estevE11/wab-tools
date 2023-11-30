@@ -49,11 +49,11 @@ const getCurrentRotation = (element) => {
 
 function addObserverIfDesiredNodeAvailable() {
     let elementToListen = document.getElementsByClassName("app-wrapper-web")[0];
-    if (!elementToListen || elementToListen.children.length < 2) {
+    if (!elementToListen || elementToListen.children.length <= 2) {
         window.setTimeout(addObserverIfDesiredNodeAvailable, 500);
         return;
     }
-    elementToListen = elementToListen.children[2];
+    elementToListen = elementToListen.children[3];
     observer.observe(elementToListen, { childList: true });
 }
 addObserverIfDesiredNodeAvailable();
