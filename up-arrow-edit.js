@@ -1,20 +1,28 @@
 const MESSAGE_CONTAINER_CLASS = "x3psx0u xwib8y2 xkhd6sd xrmvbpv";
 const HOVER_TARGET = "_amk6 _amlo";
+const ARROW_BUTTON_CLASS = "_ahkm";
 
 const handleArrowEdit = () => {
-    showEditModal();
+    editLastMessage();
 }
 
-const showEditModal = () => {
+const editLastMessage = () => {
     hoverLastMessage();
 }
 
-const hoverLastMessage = () => {
+const hoverLastMessage = async () => {
     const mouseOverEvent = createMouseEvent('mouseover');
-    const lastMessage = getLastMessageHoverTarget();
-    console.log(lastMessage);
+    const mouseLeftEvent = createMouseEvent('mouseleft');
+    let lastMessage = getLastMessageHoverTarget();
     lastMessage.dispatchEvent(mouseOverEvent);
-    console.log("event dispatched")
+
+    await sleep(10);
+
+    lastMessage = getLastMessageHoverTarget();
+    const arrowButton = lastMessage.getElementsByClassName(ARROW_BUTTON_CLASS)[0];
+    console.log(arrowButton)
+    arrowButton.click();
+    lastMessage.dispatchEvent(mouseOverEvent);
 }
 
 const getLastMessageHoverTarget = () => {
@@ -29,4 +37,8 @@ const createMouseEvent = (t) => {
         'bubbles': true,
         'cancelable': true
     });
+}
+
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
