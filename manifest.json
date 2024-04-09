@@ -13,7 +13,8 @@
             "js": [
                 "observer-setup.js",
                 "add-rotate-image-button.js",
-                "avoid-enter-send.js"
+                "avoid-enter-send.js",
+                "up-arrow-edit.js"
             ],
             "matches": [
                 "https://web.whatsapp.com/"

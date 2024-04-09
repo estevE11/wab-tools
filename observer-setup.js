@@ -5,6 +5,7 @@ var observer = new WebKitMutationObserver(function (mutations) {
         console.log(className);
         if (className == CHAT_CONTAINER_CLASS) {
             onInputShow();
+            handleArrowEdit();
         } else {
             onImageOpen(mutation.addedNodes[0]);
         }
