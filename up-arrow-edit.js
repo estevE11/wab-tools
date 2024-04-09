@@ -3,14 +3,16 @@ const HOVER_TARGET = "_amk6 _amlo";
 const ARROW_BUTTON_CLASS = "_ahkm";
 
 const handleArrowEdit = () => {
-    editLastMessage();
+    document.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowUp") return;
+        const message_input_container = document.querySelector("span.selectable-text[data-lexical-text='true']"); 
+        if (message_input_container) return;
+        editLastMessage();
+    });
 }
 
-const editLastMessage = () => {
-    hoverLastMessage();
-}
 
-const hoverLastMessage = async () => {
+const editLastMessage = async () => {
     const mouseOverEvent = createMouseEvent('mouseover');
     const mouseLeftEvent = createMouseEvent('mouseleft');
     let lastMessage = getLastMessageHoverTarget();
@@ -26,7 +28,6 @@ const hoverLastMessage = async () => {
     await sleep(10);
 
     const editButton = document.querySelector("div[role='button'][aria-label='Edit']");
-    console.log(editButton);
     editButton.click();
 }
 
