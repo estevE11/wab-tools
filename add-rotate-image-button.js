@@ -1,5 +1,5 @@
-const IMG_CONTAINER_CLASS = "_2pktu"; // <-- constant class name for image container
-const BUTTON_CONTAINER_CLASS = "_3qNGb";
+const IMG_CONTAINER_CLASS = "_ajuf"; // <-- constant class name for image container
+const BUTTON_CONTAINER_CLASS = "_ajv3";
 
 const onImageOpen = (wrapperElement) => {
     var buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
