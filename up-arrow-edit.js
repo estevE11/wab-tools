@@ -20,9 +20,14 @@ const hoverLastMessage = async () => {
 
     lastMessage = getLastMessageHoverTarget();
     const arrowButton = lastMessage.getElementsByClassName(ARROW_BUTTON_CLASS)[0];
-    console.log(arrowButton)
     arrowButton.click();
     lastMessage.dispatchEvent(mouseOverEvent);
+
+    await sleep(10);
+
+    const editButton = document.querySelector("div[role='button'][aria-label='Edit']");
+    console.log(editButton);
+    editButton.click();
 }
 
 const getLastMessageHoverTarget = () => {
