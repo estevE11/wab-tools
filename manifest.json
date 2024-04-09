@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "WhatsApp Web Tools",
     "description": "Tools to imporve WhatsApp Web experience",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "icons": {
         "16": "img/icon16.png",
         "48": "img/icon48.png",
