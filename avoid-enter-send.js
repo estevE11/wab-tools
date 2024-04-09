@@ -1,3 +1,7 @@
+const TOPRIGHT_BUTTON_CONTAINTER_CLASS = "_ajv2 _ajv1";
+const CHAT_CONTAINER_CLASS = "_aigv _aigz";
+const INPUT_CLASS = "x1hx0egp x6ikm8r x1odjw0f x1k6rcq7 x6prxxf";
+
 let enterActive = true;
 
 const stopperListener = (e) => {
@@ -24,19 +28,19 @@ const toggleEnter = () => {
 
 const disableEnter = () => {
     var mmain = document.getElementById("main");
-    var theone = mmain.getElementsByClassName("to2l77zo gfz4du6o ag5g9lrv bze30y65 kao4egtt")[0];
+    var theone = mmain.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.addEventListener("keydown", stopperListener, {capture: true}); 
 }
 
 const enableEnter = () => {
     var main = document.getElementById("main");
-    var theone = main.getElementsByClassName("to2l77zo gfz4du6o ag5g9lrv bze30y65 kao4egtt")[0];
+    var theone = main.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.removeEventListener("keydown", stopperListener, true); 
 }
 
 const addToggleButton = () => {
     var main = document.getElementById("main");
-    var buttonContainer = main.getElementsByClassName("_1sPvB _2XdMx")[0];
+    var buttonContainer = main.getElementsByClassName(TOPRIGHT_BUTTON_CONTAINTER_CLASS)[0];
     var buttonExample = buttonContainer.children[0];
     var newButton = buttonExample.cloneNode(true);
 
@@ -49,7 +53,7 @@ const addToggleButton = () => {
 
 const updateToggleButonColor = () => {
     var main = document.getElementById("main");
-    var buttonContainer = main.getElementsByClassName("_1sPvB _2XdMx")[0];
+    var buttonContainer = main.getElementsByClassName(TOPRIGHT_BUTTON_CONTAINTER_CLASS)[0];
     var button = buttonContainer.children[0];
 
     var bubble = button.querySelector("span[data-icon='search-alt']"); // SVG Container
@@ -57,7 +61,7 @@ const updateToggleButonColor = () => {
 }
 
 function addObserverIfDesiredNodeAvailable2() {
-    let elementToListen = document.getElementsByClassName("_2Ts6i _2xAQV")[1];
+    let elementToListen = document.getElementsByClassName(CHAT_CONTAINER_CLASS)[1];
     if (!elementToListen) {
         window.setTimeout(addObserverIfDesiredNodeAvailable2, 500);
         return;

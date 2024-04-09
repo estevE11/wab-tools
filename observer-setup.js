@@ -2,7 +2,8 @@ var observer = new WebKitMutationObserver(function (mutations) {
     const mutation = mutations[0];
     const className = mutation.target.className;
     if (mutation.type == "childList") {
-        if (className == "_2Ts6i _2xAQV") {
+        console.log(className);
+        if (className == CHAT_CONTAINER_CLASS) {
             onInputShow();
         } else {
             onImageOpen(mutation.addedNodes[0]);
