@@ -5,6 +5,12 @@ const INPUT_CLASS = "x1hx0egp x6ikm8r x1odjw0f x1k6rcq7 x6prxxf";
 let enterActive = true;
 let previousBorder = "";
 
+document.addEventListener("keydown", (e) => {
+    if(e.ctrlKey && e.key === ".") {
+        toggleEnter();
+    }
+});
+
 const stopperListener = (e) => {
     e.stopImmediatePropagation();
 }
