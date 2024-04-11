@@ -4,9 +4,10 @@ const INPUT_CLASS = "x1hx0egp x6ikm8r x1odjw0f x1k6rcq7 x6prxxf";
 
 let enterActive = true;
 let previousBorder = "";
+let inputOnFocus = false;
 
-document.addEventListener("keydown", (e) => {
-    if(e.ctrlKey && e.key === ".") {
+document.addEventListener("keypress", (e) => {
+    if(inputOnFocus && e.ctrlKey && e.key === ".") {
         toggleEnter();
     }
 });
@@ -19,6 +20,16 @@ const onInputShow = () => {
     addToggleButton();
     enableEnter();
     enterActive = true;
+
+    var main = document.getElementById("main");
+    var theone = main.getElementsByClassName(INPUT_CLASS)[0];
+    theone.addEventListener("focusin", (e) => {
+        inputOnFocus = true;
+    });
+
+    theone.addEventListener("focusout", (e) => {
+        inputOnFocus = false;
+    });
 }
 
 const toggleEnter = () => {
