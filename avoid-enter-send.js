@@ -27,13 +27,12 @@ const onInputShow = () => {
     enableEnter();
     enterActive = true;
 
-    var main = document.getElementById("main");
-    var theone = main.getElementsByClassName(INPUT_CLASS)[0];
-    theone.addEventListener("focusin", (e) => {
+    const textarea = getTextarea();
+    textarea.addEventListener("focusin", (e) => {
         inputOnFocus = true;
     });
 
-    theone.addEventListener("focusout", (e) => {
+    textarea.addEventListener("focusout", (e) => {
         inputOnFocus = false;
     });
 }
@@ -51,11 +50,10 @@ const toggleEnter = () => {
 }
 
 const disableEnter = () => {
-    var mmain = document.getElementById("main");
-    var theone = mmain.getElementsByClassName(INPUT_CLASS)[0];
-    theone.parentElement.addEventListener("keydown", stopperListener, {capture: true}); 
+    const textarea = getTextarea();
+    textarea.parentElement.addEventListener("keydown", stopperListener, {capture: true}); 
 
-    var wrapper = theone.parentElement.parentElement;
+    var wrapper = textarea.parentElement.parentElement;
     previousBorder = wrapper.style.border;
     wrapper.style.border = "3px solid #008069";
     wrapper.style.paddingTop = "7.4px";
@@ -64,11 +62,10 @@ const disableEnter = () => {
 }
 
 const enableEnter = () => {
-    var main = document.getElementById("main");
-    var theone = main.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.removeEventListener("keydown", stopperListener, true); 
 
-    var wrapper = theone.parentElement.parentElement;
+    const textarea = getTextarea();
+    var wrapper = textarea.parentElement.parentElement;
     wrapper.style.border = previousBorder;
     wrapper.style.paddingTop = "9px";
     wrapper.style.paddingLeft = "12px";
@@ -76,8 +73,7 @@ const enableEnter = () => {
 }
 
 const addToggleButton = () => {
-    var main = document.getElementById("main");
-    var buttonContainer = main.getElementsByClassName(TOPRIGHT_BUTTON_CONTAINTER_CLASS)[0];
+    var buttonContainer = getButtonContainer();
     var buttonExample = buttonContainer.children[0];
     var newButton = buttonExample.cloneNode(true);
 
@@ -89,8 +85,7 @@ const addToggleButton = () => {
 }
 
 const updateToggleButonColor = () => {
-    var main = document.getElementById("main");
-    var buttonContainer = main.getElementsByClassName(TOPRIGHT_BUTTON_CONTAINTER_CLASS)[0];
+    var buttonContainer = getButtonContainer();
     var button = buttonContainer.children[0];
 
     var bubble = button.querySelector("span[data-icon='search-alt']"); // SVG Container
@@ -102,13 +97,22 @@ const sendMessage = () => {
     button.click();
 }
 
+const getTextarea = () => {
+    var main = document.getElementById("main");
+    return main.getElementsByClassName(INPUT_CLASS)[0];
+}
+
+const getButtonContainer = () => {
+    var main = document.getElementById("main");
+    return main.getElementsByClassName(TOPRIGHT_BUTTON_CONTAINTER_CLASS)[0];
+}
+
 function addObserverIfDesiredNodeAvailable2() {
     let elementToListen = document.getElementsByClassName(CHAT_CONTAINER_CLASS)[1];
     if (!elementToListen) {
         window.setTimeout(addObserverIfDesiredNodeAvailable2, 500);
         return;
     }
-    console.log("registered")
     observer.observe(elementToListen, { childList: true });
 }
 addObserverIfDesiredNodeAvailable2();

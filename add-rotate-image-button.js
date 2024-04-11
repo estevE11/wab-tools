@@ -4,7 +4,7 @@ const BUTTON_CONTAINER_CLASS = "_ajv3";
 const onImageOpen = (wrapperElement) => {
     var buttonContainer = wrapperElement.getElementsByClassName(BUTTON_CONTAINER_CLASS)[0];
     if (buttonContainer.children.length < 6) {
-        window.setTimeout(() => onImageOpen(wrapperElement), 500);
+        window.setTimeout(() => onImageOpen(wrapperElement), 50);
         return;
     }
 
