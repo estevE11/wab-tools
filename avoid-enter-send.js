@@ -113,7 +113,6 @@ function addObserverIfDesiredNodeAvailable2() {
         window.setTimeout(addObserverIfDesiredNodeAvailable2, 500);
         return;
     }
-    console.log("registered")
     observer.observe(elementToListen, { childList: true });
 }
 addObserverIfDesiredNodeAvailable2();
