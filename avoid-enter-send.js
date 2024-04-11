@@ -7,8 +7,14 @@ let previousBorder = "";
 let inputOnFocus = false;
 
 document.addEventListener("keypress", (e) => {
-    if(inputOnFocus && e.ctrlKey && e.key === ".") {
+    if (!inputOnFocus) return;
+    if(e.ctrlKey && e.key === ".") {
         toggleEnter();
+    }
+
+    if (e.shiftKey && e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
     }
 });
 
@@ -89,6 +95,11 @@ const updateToggleButonColor = () => {
 
     var bubble = button.querySelector("span[data-icon='search-alt']"); // SVG Container
     bubble.innerHTML = sendButtonSVG(!enterActive ? "#008069" : "#aebac1");
+}
+
+const sendMessage = () => {
+    var button = document.body.querySelector("button[aria-label='Send']");
+    button.click();
 }
 
 function addObserverIfDesiredNodeAvailable2() {
