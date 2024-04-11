@@ -3,6 +3,7 @@ const CHAT_CONTAINER_CLASS = "_aigv _aigz";
 const INPUT_CLASS = "x1hx0egp x6ikm8r x1odjw0f x1k6rcq7 x6prxxf";
 
 let enterActive = true;
+let previousBorder = "";
 
 const stopperListener = (e) => {
     e.stopImmediatePropagation();
@@ -30,12 +31,25 @@ const disableEnter = () => {
     var mmain = document.getElementById("main");
     var theone = mmain.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.addEventListener("keydown", stopperListener, {capture: true}); 
+
+    var wrapper = theone.parentElement.parentElement;
+    previousBorder = wrapper.style.border;
+    wrapper.style.border = "3px solid #008069";
+    wrapper.style.paddingTop = "7.4px";
+    wrapper.style.paddingLeft = "10.4px";
+    wrapper.style.paddingBottom = "7.4px";
 }
 
 const enableEnter = () => {
     var main = document.getElementById("main");
     var theone = main.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.removeEventListener("keydown", stopperListener, true); 
+
+    var wrapper = theone.parentElement.parentElement;
+    wrapper.style.border = previousBorder;
+    wrapper.style.paddingTop = "9px";
+    wrapper.style.paddingLeft = "12px";
+    wrapper.style.paddingBottom = "9px";
 }
 
 const addToggleButton = () => {
