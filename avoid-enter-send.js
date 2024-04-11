@@ -3,6 +3,20 @@ const CHAT_CONTAINER_CLASS = "_aigv _aigz";
 const INPUT_CLASS = "x1hx0egp x6ikm8r x1odjw0f x1k6rcq7 x6prxxf";
 
 let enterActive = true;
+let previousBorder = "";
+let inputOnFocus = false;
+
+document.addEventListener("keypress", (e) => {
+    if (!inputOnFocus) return;
+    if(e.ctrlKey && e.key === ".") {
+        toggleEnter();
+    }
+
+    if (e.shiftKey && e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+    }
+});
 
 const stopperListener = (e) => {
     e.stopImmediatePropagation();
@@ -12,6 +26,16 @@ const onInputShow = () => {
     addToggleButton();
     enableEnter();
     enterActive = true;
+
+    var main = document.getElementById("main");
+    var theone = main.getElementsByClassName(INPUT_CLASS)[0];
+    theone.addEventListener("focusin", (e) => {
+        inputOnFocus = true;
+    });
+
+    theone.addEventListener("focusout", (e) => {
+        inputOnFocus = false;
+    });
 }
 
 const toggleEnter = () => {
@@ -30,12 +54,25 @@ const disableEnter = () => {
     var mmain = document.getElementById("main");
     var theone = mmain.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.addEventListener("keydown", stopperListener, {capture: true}); 
+
+    var wrapper = theone.parentElement.parentElement;
+    previousBorder = wrapper.style.border;
+    wrapper.style.border = "3px solid #008069";
+    wrapper.style.paddingTop = "7.4px";
+    wrapper.style.paddingLeft = "10.4px";
+    wrapper.style.paddingBottom = "7.4px";
 }
 
 const enableEnter = () => {
     var main = document.getElementById("main");
     var theone = main.getElementsByClassName(INPUT_CLASS)[0];
     theone.parentElement.removeEventListener("keydown", stopperListener, true); 
+
+    var wrapper = theone.parentElement.parentElement;
+    wrapper.style.border = previousBorder;
+    wrapper.style.paddingTop = "9px";
+    wrapper.style.paddingLeft = "12px";
+    wrapper.style.paddingBottom = "9px";
 }
 
 const addToggleButton = () => {
@@ -58,6 +95,11 @@ const updateToggleButonColor = () => {
 
     var bubble = button.querySelector("span[data-icon='search-alt']"); // SVG Container
     bubble.innerHTML = sendButtonSVG(!enterActive ? "#008069" : "#aebac1");
+}
+
+const sendMessage = () => {
+    var button = document.body.querySelector("button[aria-label='Send']");
+    button.click();
 }
 
 function addObserverIfDesiredNodeAvailable2() {

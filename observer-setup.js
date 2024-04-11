@@ -1,3 +1,8 @@
+const wablog = (msg) => {
+    console.log("[WAB Tools]: " + msg);
+}
+
+
 var observer = new WebKitMutationObserver(function (mutations) {
     const mutation = mutations[0];
     const className = mutation.target.className;
