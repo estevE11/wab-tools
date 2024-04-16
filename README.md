@@ -9,6 +9,7 @@ You can [download](https://chromewebstore.google.com/u/1/detail/whatsapp-web-too
 ## Features:
   - Rotate images by 90deg 
   - Avoid Enter key sending the message (Feature toggleable) 
+  - Press Up Arrow Key to edit last message sent.
     
 
 

@@ -9,6 +9,7 @@ var observer = new WebKitMutationObserver(function (mutations) {
     if (mutation.type == "childList") {
         if (className == CHAT_CONTAINER_CLASS) {
             onInputShow();
+            handleArrowEdit();
         } else {
             onImageOpen(mutation.addedNodes[0]);
         }
